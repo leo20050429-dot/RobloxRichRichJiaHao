@@ -1,0 +1,3 @@
+# Studio 開檔時產生的鎖定檔
+*.rbxlx.lock
+__pycache__/
