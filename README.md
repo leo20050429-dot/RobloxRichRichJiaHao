@@ -1,17 +1,17 @@
- Roblox 遊戲專案：《深空當舖》(Deep Space Pawn Shop) 開發指令
-你現在是我們的 Roblox 遊戲主工程師兼系統架構師。我們正在開發一款類《深空當舖》（Deep Space Pawn Shop）的經營與鑑定遊戲。
+# Roblox 遊戲專案：《深空當舖》(Deep Space Pawn Shop) 開發
 
-🎮 遊戲核心機制簡介：
+
+## 🎮 遊戲核心機制簡介：
 客人登場：外星客人帶著宇宙物品前來典當或出售。
 物品鑑定：玩家使用工具（如 X 光、顯微鏡、成分分析儀）判斷物品真偽與品質（是否有裂痕、瑕疵、詛咒或偽造標誌）。
 數值議價：玩家與客人進行互動議價，根據客人的「貪婪度」與「耐心值」決定成交價。
 經營與擴建：賺取星幣（Credits）解鎖更高級的鑑定儀器、當舖裝潢與 Gamepass 功能。
-🛠️ 技術架構規範 (Luau Guidelines)
+## 🛠️ 技術架構規範 (Luau Guidelines)
 使用 Luau 語言開發，採 ModuleScript 模組化架構。
 資料存儲需預留 ProfileService 的整合介面。
 嚴格遵守 Client-Server 職責分離：所有交易金額計算、真偽驗證、庫存變動必須在 Server 端處理，Client 端僅負責 UI 動畫與互動。
 
-一、 核心玩法迴圈 (Core Gameplay Loop)
+## 一、 核心玩法迴圈 (Core Gameplay Loop)
 客人登場 (Customer Arrival)： 外星人、太空海盜、流浪商人帶著各種宇宙廢料、外星遺物前來典當或出售。
 物品鑑定 (Item Inspection)：
 使用工具（掃描儀、紫外線光、成分分析儀）檢查物品特徵。
@@ -21,7 +21,7 @@
 低價買入、高價賣給特定買家或收藏家。
 店鋪升級與探索 (Upgrades & Expansion)：
 賺取星幣（Credits），購買更高級的鑑定儀器、擴建店面、雇用員工，或解鎖宇宙暗網交易。
-💰 課金要素植入 (Monetization Strategy)
+##💰 課金要素植入 (Monetization Strategy)
 這類經營鑑定遊戲可以非常自然地融入 Robux 課金，且不會破壞免費玩家的體驗：
 
 1. Gamepass (永久功能 / VIP)
@@ -34,7 +34,7 @@
 即時鑑定速查表 (Instant Auth Pass)： 跳過鑑定小遊戲，直接得出 100% 精確真偽結果與市值。
 星幣包 (Credit Packs)： 快速補充營運資金，避免破產。
 
-🛠️ 如何讓 Claude 幫你們寫這款遊戲？
+##🛠️ 如何讓 Claude 幫你們寫這款遊戲？
 你們可以把開發拆分成以下模組，逐一讓 Claude 產出程式碼與資料表：
 
 1. 物品與鑑定資料庫 (Item Data Module)
