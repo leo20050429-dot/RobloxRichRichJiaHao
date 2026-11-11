@@ -11,7 +11,7 @@
 資料存儲需預留 ProfileService 的整合介面。
 嚴格遵守 Client-Server 職責分離：所有交易金額計算、真偽驗證、庫存變動必須在 Server 端處理，Client 端僅負責 UI 動畫與互動。
 
-## 一、 核心玩法迴圈 (Core Gameplay Loop)
+# 一、 核心玩法迴圈 (Core Gameplay Loop)
 客人登場 (Customer Arrival)： 外星人、太空海盜、流浪商人帶著各種宇宙廢料、外星遺物前來典當或出售。
 物品鑑定 (Item Inspection)：
 使用工具（掃描儀、紫外線光、成分分析儀）檢查物品特徵。
