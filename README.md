@@ -1,82 +1,45 @@
-[roblox_game_project_readme.md](https://github.com/user-attachments/files/34588402/roblox_game_project_readme.md)
-# 🎮 Roblox 商業化遊戲專案：企劃與技術架構文件
+一、 核心玩法迴圈 (Core Gameplay Loop)
+客人登場 (Customer Arrival)： 外星人、太空海盜、流浪商人帶著各種宇宙廢料、外星遺物前來典當或出售。
+物品鑑定 (Item Inspection)：
+使用工具（掃描儀、紫外線光、成分分析儀）檢查物品特徵。
+判斷是否為「真品」、「贗品（Fake）」、「危險違禁品」或「帶有詛咒/特殊能量」。
+砍價與交易 (Bargaining & Transaction)：
+根據物品狀況、客人的心理耐心值（Patience）進行出價與議價。
+低價買入、高價賣給特定買家或收藏家。
+店鋪升級與探索 (Upgrades & Expansion)：
+賺取星幣（Credits），購買更高級的鑑定儀器、擴建店面、雇用員工，或解鎖宇宙暗網交易。
+💰 課金要素植入 (Monetization Strategy)
+這類經營鑑定遊戲可以非常自然地融入 Robux 課金，且不會破壞免費玩家的體驗：
 
-歡迎來到本專案的 GitHub 儲存庫（Repository）。本文件為本 Roblox 遊戲專案的開發總覽、技術架構規範與開發時程表，供團隊成員、程式開發人員與美術設計師共同維護與參考。
+1. Gamepass (永久功能 / VIP)
+高級天眼掃描儀 (VIP Scanner)： 永久顯示物品的「隱藏瑕疵機率」或直接標示 5% 的估值誤差範圍。
+讀心術 / 客人性格透視 (Empath Glasses)： 永久顯示客人的最高/最低心理底線（更容易砍到最低價）。
+雙倍店鋪名聲 (2x Reputation)： 吸引更多高單價、稀有外星客前來。
+宇宙倉庫擴建 (Extra Storage Slots)： 允許囤積更多待價而沽的稀有寶物。
+2. Developer Products (消耗品 / 轉蛋)
+神秘星際貨櫃 (Gacha Containers)： 花費 Robux 直接購買開箱，隨機獲得「傳說級外星神器」（可擺在店裡展示或賣出巨款）。
+即時鑑定速查表 (Instant Auth Pass)： 跳過鑑定小遊戲，直接得出 100% 精確真偽結果與市值。
+星幣包 (Credit Packs)： 快速補充營運資金，避免破產。
+🛸 多種職業設計
+一、 玩家可選多種職業 : X位免費職業 Y位付費解鎖職業
+🛠️ 如何讓 Claude 幫你們寫這款遊戲？
+你們可以把開發拆分成以下模組，逐一讓 Claude 產出程式碼與資料表：
 
-## 📌 專案概覽 (Project Overview)
+1. 物品與鑑定資料庫 (Item Data Module)
+讓 Claude 產生大量的外星物品資料結構（包含名稱、基礎價值、偽造特徵、鑑定方法）。
 
-* **專案名稱：** `[ 請輸入專案名稱 / 暫定代號 ]`
-* **支援平台：** PC、Mobile (iOS/Android)、Console (Xbox/PlayStation)
-* **玩法類型：** `[ 例如：放置點擊模擬器 (Clicker Simulator) / 動漫塔防 (Tower Defense) / 經營 (Tycoon) ]`
-* **目標受眾：** 8–18 歲 Roblox 核心玩家、輕度社交玩家、收集類遊戲愛好者。
-* **一句話簡介：** `[ 用 1-2 句話描述核心玩法，例如：「體驗快節奏的魔法世界，收集稀有寵物並解鎖全新冒險區域」 ]`
+給 Claude 的 Prompt 範例： 「請幫我用 Luau 撰寫一個 ItemDatabase ModuleScript。定義 10 種深空當舖的物品（包含稀有度、估價、真實度 isFake 屬性，以及 3 種鑑定條件，例如：需要用 X 光掃描才會發現裂痕）。」
 
-## 🔁 核心玩法迴圈 (Core Gameplay Loop)
+2. 議價與 NPC 心態系統 (Bargain Logic)
+讓 Claude 撰寫計算公式：根據客人的貪婪度、耐心值與玩家的出價幅度，決定 NPC 是接受、拒絕還是摔門離開。
 
-```
-[ 步驟 1：採集 / 戰鬥 ] ──► [ 步驟 2：獲取金幣 / 資源 ] ──► [ 步驟 3：升級裝備 / 解鎖區域 ] ──► [ 循環與轉生 ]
-```
+給 Claude 的 Prompt 範例： 「幫我寫一個伺服器端的議價邏輯函式 CalculateBargain(customerPatience, baseValue, playerOffer)，傳回 NPC 是否同意交易，以及耐心值的扣減演算法。」
 
-1. **核心行為（Gathering/Action）：** 玩家透過點擊或自動戰鬥收集基礎資源。
-2. **經濟升級（Progression）：** 將資源轉化為遊戲內貨幣，購買更好的裝備、寵物或解鎖新地圖。
-3. **數值成長與轉生（Ascension/Rebirth）：** 引入轉生機制，重置部分進度以獲得永久倍率加成，維持長期留存。
+3. 鑑定小遊戲 logic (Inspection Minigames)
+例如：點擊特定區域掃描輻射值、比對圖鑑上的外星符號是否一致。
 
-## 💰 商業化變現策略 (Monetization Strategy)
-
-| 項目名稱 | 類型 | 預計價格 (Robux) | 功能說明與誘因 |
-| ----- | ----- | ----- | ----- |
-| **VIP 權益** | Gamepass | `[ 799 ]` | 專屬聊天頭銜、VIP 專屬區域、永久 +20% 收益加成 |
-| **雙倍金幣 (2x Coins)** | Gamepass | `[ 399 ]` | 永久獲得 2 倍金幣產出，大幅加速前期成長 |
-| **自動掛機 / 連抽** | Gamepass | `[ 249 ]` | 解鎖 Auto-Farm 自動收集與多連抽寵物功能 |
-| **金幣禮包** | Dev Product | `[ 99 - 2499 ]` | 階梯式價格，提供玩家快速補足資源的管道 |
-| **寵物轉蛋 (Gacha)** | Dev Product | `[ 99 / 抽 ]` | 具備機率權重的夥伴抽獎系統 |
-
-## 🛠️ 技術架構與工具 (Technical Stack & Architecture)
-
-* **遊戲引擎：** Roblox Studio
-* **程式語言：** Luau (具備型別檢查的 Lua 衍生語言)
-* **資料儲存 (Data Persistence)：** [ProfileService](https://lolwer.github.io/ProfileService/) *(用於確保交易安全與防止玩家刷物品/掉檔)*
-* **開發架構：** 模組化導向架構 (Modular Architecture / 可搭配 Knit 框架)
-* **防作弊機制 (Security & Anti-Cheat)：**
-  * **伺服器主導邏輯 (Server-Authoritative)：** 所有金幣發放、傷害計算、道具交易完全於伺服器端進行。
-  * **用戶端驗證：** 對所有 Client 端傳送的 RemoteEvents 進行嚴格數據檢查（Sanity Check）。
-
-## 📁 專案目錄結構 (Repository Structure)
-
-```
-├── src/
-│   ├── Client/            # LocalScripts、控制器與用戶端 UI 邏輯
-│   ├── Server/            # ServerScripts、遊戲核心 logic、DataStore、防作弊
-│   └── Shared/            # ReplicatedStorage 共用模組、網路配置、資料表
-├── docs/                  # 設計規範、數值平衡表與企劃文件
-├── default.project.json   # Rojo 同步設定檔
-└── README.md              # 專案說明文件
-```
-
-## 🚀 開發里程碑與時程 (Development Roadmap)
-
-* [ ] **Phase 1: 核心原型 (MVP)**
-  * 完成玩家基本移動、資源採集機制與基礎 UI 框架。
-  * 搭建 ProfileService 資料存取模組。
-* [ ] **Phase 2: 系統閉環**
-  * 完成寵物/裝備系統、RNG 抽獎機制、轉生（Rebirth）計算系統。
-  * 整合基礎地圖場景與音效。
-* [ ] **Phase 3: Alpha 測試與變現接入**
-  * 接入 Gamepass 與 Developer Products 購買邏輯。
-  * 內部壓力測試與 Bug 修正。
-* [ ] **Phase 4: Beta 封測與宣傳上線**
-  * 投放首波 Roblox 站內廣告 (Sponsor Ads)。
-  * 經營 Discord 社群並收集玩家回饋，進行數值微調。
-
-## 👥 團隊分工 (Team & Roles)
-
-* **專案企劃 / 數值設計：** `[ 負責人姓名/代稱 ]`
-* **主程式 (Luau Developer)：** `[ 負責人姓名/代稱 ]`
-* **3D 建模 / 場景美術：** `[ 負責人姓名/代稱 ]`
-* **UI/UX 設計師：** `[ 負責人姓名/代稱 ]`
-
-## 📄 版權與使用聲明 (License & Usage)
-
-本儲存庫內之所有程式碼與美術資產均屬團隊私有財產。未經授權，禁止以任何形式進行複製、修改、散佈或逆向工程。
-
-© 2026 `[ 團隊/工作室名稱 ]`. All Rights Reserved.
+📋 建議團隊第一步
+確定視覺風格： 要走低多邊形科幻風（Low-Poly Sci-Fi），還是復古像素 / 復古未來的 2D/3D 混合風格？
+在 Roblox Studio 拉出基本場景： 只需要一個當舖櫃檯、一個展示架，以及客人站在櫃檯前的位置。
+開始撰寫 ItemDatabase 模組： 讓 Claude 幫你們設計第一批 20 種有趣的太空物品與怪異故事！
+你們想先從物品屬性結構設計開始，還是先寫議價系統的程式碼呢？
