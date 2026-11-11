@@ -39,15 +39,21 @@
       <string name="Name">Chat</string>
     </Properties>
   </Item>
-  <Item class="ReplicatedStorage" referent="RBX00000009">
+  <Item class="TextChatService" referent="RBX00000009">
+    <Properties>
+      <string name="Name">TextChatService</string>
+      <token name="ChatVersion">1</token>
+    </Properties>
+  </Item>
+  <Item class="ReplicatedStorage" referent="RBX0000000A">
     <Properties>
       <string name="Name">ReplicatedStorage</string>
     </Properties>
-    <Item class="Folder" referent="RBX0000000A">
+    <Item class="Folder" referent="RBX0000000B">
       <Properties>
         <string name="Name">Shared</string>
       </Properties>
-      <Item class="ModuleScript" referent="RBX0000000B">
+      <Item class="ModuleScript" referent="RBX0000000C">
         <Properties>
           <string name="Name">Achievements</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -102,7 +108,7 @@ return Achievements
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX0000000C">
+      <Item class="ModuleScript" referent="RBX0000000D">
         <Properties>
           <string name="Name">BargainSystem</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -228,7 +234,7 @@ return BargainSystem
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX0000000D">
+      <Item class="ModuleScript" referent="RBX0000000E">
         <Properties>
           <string name="Name">Cargo</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -376,7 +382,7 @@ return Cargo
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX0000000E">
+      <Item class="ModuleScript" referent="RBX0000000F">
         <Properties>
           <string name="Name">CodexSystem</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -550,7 +556,7 @@ return CodexSystem
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX0000000F">
+      <Item class="ModuleScript" referent="RBX00000010">
         <Properties>
           <string name="Name">Config</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -669,7 +675,7 @@ return Config
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000010">
+      <Item class="ModuleScript" referent="RBX00000011">
         <Properties>
           <string name="Name">Crime</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -775,7 +781,7 @@ return Crime
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000011">
+      <Item class="ModuleScript" referent="RBX00000012">
         <Properties>
           <string name="Name">CustomerGenerator</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -956,7 +962,7 @@ return CustomerGenerator
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000012">
+      <Item class="ModuleScript" referent="RBX00000013">
         <Properties>
           <string name="Name">GalacticNews</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -1038,7 +1044,7 @@ return GalacticNews
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000013">
+      <Item class="ModuleScript" referent="RBX00000014">
         <Properties>
           <string name="Name">ItemDatabase</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -1544,7 +1550,7 @@ return ItemDatabase
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000014">
+      <Item class="ModuleScript" referent="RBX00000015">
         <Properties>
           <string name="Name">Jobs</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -1622,7 +1628,7 @@ return Jobs
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000015">
+      <Item class="ModuleScript" referent="RBX00000016">
         <Properties>
           <string name="Name">PlayerDataSchema</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -1726,7 +1732,7 @@ return PlayerDataSchema
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000016">
+      <Item class="ModuleScript" referent="RBX00000017">
         <Properties>
           <string name="Name">Progression</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -1787,7 +1793,7 @@ return Progression
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000017">
+      <Item class="ModuleScript" referent="RBX00000018">
         <Properties>
           <string name="Name">Tools</string>
           <ProtectedString name="Source"><![CDATA[--!strict
@@ -1847,15 +1853,15 @@ return Tools
       </Item>
     </Item>
   </Item>
-  <Item class="ServerScriptService" referent="RBX00000018">
+  <Item class="ServerScriptService" referent="RBX00000019">
     <Properties>
       <string name="Name">ServerScriptService</string>
     </Properties>
-    <Item class="Folder" referent="RBX00000019">
+    <Item class="Folder" referent="RBX0000001A">
       <Properties>
         <string name="Name">Server</string>
       </Properties>
-      <Item class="ModuleScript" referent="RBX0000001A">
+      <Item class="ModuleScript" referent="RBX0000001B">
         <Properties>
           <string name="Name">DataService</string>
           <ProtectedString name="Source"><![CDATA[-- 玩家存檔讀寫（DataStoreService）。
@@ -2020,7 +2026,7 @@ return DataService
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="Script" referent="RBX0000001B">
+      <Item class="Script" referent="RBX0000001C">
         <Properties>
           <string name="Name">Main</string>
           <ProtectedString name="Source"><![CDATA[-- 伺服器進入點：蓋小鎮、建立 Remote、啟動各個 Service。
@@ -2065,7 +2071,7 @@ DataService.Start()
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX0000001C">
+      <Item class="ModuleScript" referent="RBX0000001D">
         <Properties>
           <string name="Name">PromptRouter</string>
           <ProtectedString name="Source"><![CDATA[-- ProximityPrompt 路由：每個 Prompt 都有 Action 屬性，觸發時交給對應的處理函式。
@@ -2116,7 +2122,7 @@ return PromptRouter
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX0000001D">
+      <Item class="ModuleScript" referent="RBX0000001E">
         <Properties>
           <string name="Name">ShopService</string>
           <ProtectedString name="Source"><![CDATA[-- 當舖的核心邏輯（全部在伺服器端）。
@@ -3103,11 +3109,11 @@ return ShopService
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="Folder" referent="RBX0000001E">
+      <Item class="Folder" referent="RBX0000001F">
         <Properties>
           <string name="Name">Tests</string>
         </Properties>
-        <Item class="Script" referent="RBX0000001F">
+        <Item class="Script" referent="RBX00000020">
           <Properties>
             <string name="Name">SelfTest</string>
             <ProtectedString name="Source"><![CDATA[-- 自動測試：只在 Studio 裡執行，結果印在 Output 視窗。
@@ -3501,7 +3507,7 @@ end
           </Properties>
         </Item>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000020">
+      <Item class="ModuleScript" referent="RBX00000021">
         <Properties>
           <string name="Name">TownBuilder</string>
           <ProtectedString name="Source"><![CDATA[-- 用程式碼蓋出「星塵鎮」：廣場、商店街（4 間當舖）、貿易站、研究院、黑市、監獄，
@@ -3934,7 +3940,7 @@ return TownBuilder
 ]]></ProtectedString>
         </Properties>
       </Item>
-      <Item class="ModuleScript" referent="RBX00000021">
+      <Item class="ModuleScript" referent="RBX00000022">
         <Properties>
           <string name="Name">TownService</string>
           <ProtectedString name="Source"><![CDATA[-- 多人小鎮的核心：職業、商人採集與賣貨、搶劫、通緝、逮捕、坐牢、護送。
@@ -4839,19 +4845,19 @@ return TownService
       </Item>
     </Item>
   </Item>
-  <Item class="StarterPlayer" referent="RBX00000022">
+  <Item class="StarterPlayer" referent="RBX00000023">
     <Properties>
       <string name="Name">StarterPlayer</string>
     </Properties>
-    <Item class="StarterPlayerScripts" referent="RBX00000023">
+    <Item class="StarterPlayerScripts" referent="RBX00000024">
       <Properties>
         <string name="Name">StarterPlayerScripts</string>
       </Properties>
-      <Item class="Folder" referent="RBX00000024">
+      <Item class="Folder" referent="RBX00000025">
         <Properties>
           <string name="Name">Client</string>
         </Properties>
-        <Item class="ModuleScript" referent="RBX00000025">
+        <Item class="ModuleScript" referent="RBX00000026">
           <Properties>
             <string name="Name">CustomerModel</string>
             <ProtectedString name="Source"><![CDATA[-- 在櫃檯前生成客人的外星人模型（只在這位玩家的畫面上出現）。
@@ -5013,7 +5019,7 @@ return CustomerModel
 ]]></ProtectedString>
           </Properties>
         </Item>
-        <Item class="LocalScript" referent="RBX00000026">
+        <Item class="LocalScript" referent="RBX00000027">
           <Properties>
             <string name="Name">Main</string>
             <ProtectedString name="Source"><![CDATA[-- 客戶端進入點：建立介面、把按鈕接到伺服器、收到狀態就重畫。
@@ -5276,7 +5282,7 @@ end)
 ]]></ProtectedString>
           </Properties>
         </Item>
-        <Item class="ModuleScript" referent="RBX00000027">
+        <Item class="ModuleScript" referent="RBX00000028">
           <Properties>
             <string name="Name">UI</string>
             <ProtectedString name="Source"><![CDATA[-- 玩家介面：上方資訊列、左邊客人面板、右邊倉庫 / 商店 / 圖鑑面板、下方訊息。

@@ -36,7 +36,15 @@ BASE_SERVICES = [
     "StarterPlayer",
     "SoundService",
     "Chat",
+    "TextChatService",
 ]
+
+# 服務需要額外寫出的屬性。
+# ChatVersion 1 = 新版 TextChatService。沒寫的話 Studio 會用舊版聊天，
+# 舊版聊天框固定在左上角，會蓋住左邊面板（簽到按鈕），而且不能用程式移走。
+EXTRA_PROPERTIES = {
+    "TextChatService": ['<token name="ChatVersion">1</token>'],
+}
 
 
 class Builder:
@@ -51,6 +59,8 @@ class Builder:
         pad = "  " * indent
         lines = [f'{pad}<Item class="{class_name}" referent="{self.ref()}">', f"{pad}  <Properties>"]
         lines.append(f'{pad}    <string name="Name">{escape(name)}</string>')
+        for prop in EXTRA_PROPERTIES.get(class_name, []):
+            lines.append(f"{pad}    {prop}")
         if source is not None:
             safe = source.replace("]]>", "]]]]><![CDATA[>")
             lines.append(f'{pad}    <ProtectedString name="Source"><![CDATA[{safe}]]></ProtectedString>')
